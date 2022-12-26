@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Driver {
+  id          Int             @id @default(autoincrement())
+  name        String
+  image       String
+  teamId      Int?
+  team        Team?           @relation(fields: [teamId], references: [id], onDelete: Cascade)
+}
+
+model Team {
+  id          Int             @id @default(autoincrement())
+  name        String
+  drivers     Driver[]
+  image       String
+}
+
+

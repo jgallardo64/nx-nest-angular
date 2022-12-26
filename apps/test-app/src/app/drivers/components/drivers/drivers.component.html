@@ -1,0 +1,23 @@
+<!-- <ng-container *ngFor="let driver of drivers$ | async">
+    {{driver.name}}
+    <img [src]="driver.image" alt="">
+</ng-container> -->
+
+<form [formGroup]="testForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Team</mat-label>
+    <input matInput placeholder="Team" formControlName="teamId" type="number"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Image URL</mat-label>
+    <input matInput placeholder="Image URL" formControlName="image"/>
+  </mat-form-field>
+</form>
+
+<button mat-button (click)="saveDriver(testForm.value)">Save</button>
