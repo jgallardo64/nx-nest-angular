@@ -15,7 +15,6 @@ import { DriversModule } from './drivers/drivers.module';
     HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

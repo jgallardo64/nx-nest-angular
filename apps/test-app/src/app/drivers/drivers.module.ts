@@ -7,16 +7,14 @@ import { DriversService } from './services/drivers.service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [DriversComponent],
   imports: [
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     MatIconModule,
     MatFormFieldModule,
