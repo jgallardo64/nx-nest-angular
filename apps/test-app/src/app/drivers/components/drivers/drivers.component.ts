@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Driver } from '@prisma/client';
 import { Observable } from 'rxjs';
 import { DriversService } from '../../services/drivers.service';
 
@@ -11,22 +10,26 @@ import { DriversService } from '../../services/drivers.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DriversComponent implements OnInit {
-  drivers$!: Observable<Driver[]>;
+  drivers$!: Observable<any[]>;
   testForm!: FormGroup;
 
-  constructor(private driversService: DriversService, private fb: FormBuilder) {}
+  constructor(
+    private driversService: DriversService,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
     this.drivers$ = this.driversService.getDrivers();
 
     this.testForm = this.fb.group({
       name: [''],
-      image: ['']
-    })
+      image: [''],
+      teamId: [''],
+    });
   }
 
   saveDriver(data: any) {
+    console.log('save', data);
     this.driversService.createDriver(data);
   }
-
 }
