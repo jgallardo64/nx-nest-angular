@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js"
+    "postinstall": "node ./decorate-angular-cli.js",
+    "db:generate": "npx dotenv-flow -p apps/test-app-be -- npx prisma generate --schema=apps/test-app-be/prisma/schema.prisma"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nrwl/angular": "15.4.1",
     "@prisma/client": "^4.8.0",
+    "dotenv-flow": "^3.2.0",
     "prisma": "^4.8.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
